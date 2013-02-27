@@ -24,6 +24,7 @@
 #include "Config.h"
 #include "Common.h"
 #include "DatabaseEnv.h"
+#include "AccountMgr.h"
 #include "Log.h"
 #include "Opcodes.h"
 #include "WorldPacket.h"
@@ -1188,5 +1189,8 @@ RBACData* WorldSession::GetRBACData()
 
 bool WorldSession::HasPermission(uint32 permission)
 {
+    if (!_RBACData)
+        LoadPermissions();
+
     return _RBACData->HasPermission(permission);
 }
