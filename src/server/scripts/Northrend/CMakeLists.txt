@@ -176,8 +176,14 @@ set(scripts_STAT_SRCS
   Northrend/IcecrownCitadel/boss_valithria_dreamwalker.cpp
   Northrend/IcecrownCitadel/boss_sindragosa.cpp
   Northrend/IcecrownCitadel/boss_the_lich_king.cpp
+<<<<<<< HEAD
   Northrend/zone_zuldrak.cpp
   Northrend/zone_icecrown.cpp
+=======
+  Northrend/zuldrak.cpp
+  Northrend/wintergrasp.cpp
+  Northrend/icecrown.cpp
+>>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
   Northrend/Gundrak/boss_slad_ran.cpp
   Northrend/Gundrak/instance_gundrak.cpp
   Northrend/Gundrak/boss_drakkari_colossus.cpp

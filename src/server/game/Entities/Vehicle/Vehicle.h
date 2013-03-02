@@ -26,6 +26,7 @@
 #include <list>
 
 struct VehicleEntry;
+struct Position;
 class Unit;
 class VehicleJoinEvent;
 
@@ -63,10 +64,15 @@ class Vehicle : public TransportBase
         void RelocatePassengers();
         void RemoveAllPassengers();
         void Dismiss();
+<<<<<<< HEAD
         bool IsVehicleInUse() const;
 
         void SetLastShootPos(Position const& pos) { _lastShootPos.Relocate(pos); }
         Position const& GetLastShootPos() const { return _lastShootPos; }
+=======
+        bool IsVehicleInUse() { return Seats.begin() != Seats.end(); }
+        void Relocate(Position pos);
+>>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
 
         SeatMap Seats;                                      ///< The collection of all seats on the vehicle. Including vacant ones.
 
