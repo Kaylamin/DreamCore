@@ -30,14 +30,9 @@
 #include "CreatureAI.h"
 #include "MapManager.h"
 #include "BattlegroundIC.h"
-<<<<<<< HEAD
 #include "BattlefieldWG.h"
 #include "BattlefieldMgr.h"
 #include "Player.h"
-=======
-#include "OutdoorPvPMgr.h"
-#include "OutdoorPvPWG.h"
->>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
 
 bool IsPrimaryProfessionSkill(uint32 skill)
 {
@@ -1121,23 +1116,8 @@ bool SpellArea::IsFitToRequirements(Player const* player, uint32 newZone, uint32
             if (!player)
                 return false;
 
-<<<<<<< HEAD
             Battlefield* Bf = sBattlefieldMgr->GetBattlefieldToZoneId(player->GetZoneId());
             if (!Bf || Bf->CanFlyIn() || (!player->HasAuraType(SPELL_AURA_MOD_INCREASE_MOUNTED_FLIGHT_SPEED) && !player->HasAuraType(SPELL_AURA_FLY)))
-=======
-            if (sWorld->getBoolConfig(CONFIG_OUTDOORPVP_WINTERGRASP_ENABLED))
-            {
-                OutdoorPvPWG *pvpWG = (OutdoorPvPWG*)sOutdoorPvPMgr->GetOutdoorPvPToZoneId(4197);
-                if ((pvpWG->isWarTime()==false) || player->isDead() || player->HasAura(45472) || player->HasAura(44795) || player->GetPositionZ() > 619.2f || player->isInFlight() || (!player->HasAuraType(SPELL_AURA_MOD_INCREASE_MOUNTED_FLIGHT_SPEED) && !player->HasAuraType(SPELL_AURA_FLY)))
-                   return false;
-            }
-            break;
-        }
-        case 58045: // Essence of Wintergrasp - Wintergrasp
-        case 57940: // Essence of Wintergrasp - Northrend
-        {
-            if (!player || player->GetTeamId() != sWorld->getWorldState(WORLDSTATE_WINTERGRASP_CONTROLING_FACTION))
->>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
                 return false;
             break;
         }
@@ -3627,7 +3607,6 @@ void SpellMgr::LoadDbcDataCorrections()
             case 75889: // Awaken Flames
                 spellInfo->AttributesEx |= SPELL_ATTR1_CANT_TARGET_SELF;
                 break;
-<<<<<<< HEAD
             // ENDOF RUBY SANCTUM SPELLS
             //
             // EYE OF ETERNITY SPELLS
@@ -3654,13 +3633,6 @@ void SpellMgr::LoadDbcDataCorrections()
                 break;
             // ENDOF OCULUS SPELLS
             //
-=======
-            case 51678: // WintergraspSiegeEngine Ram set radius of damage for units to 5 yards 
-                spellInfo->EffectRadiusIndex[0] = EFFECT_RADIUS_5_YARDS; // SPELL_EFFECT_KNOCK_BACK
-                spellInfo->EffectRadiusIndex[1] = EFFECT_RADIUS_5_YARDS; // SPELL_EFFECT_SCHOOL_DAMAGE
-                spellInfo->EffectRadiusIndex[2] = EFFECT_RADIUS_20_YARDS; // SPELL_EFFECT_WMO_DAMAGE, Huck but it must be -> Fortress towers are much bigger than original WMO damage radius of spell
-                break;
->>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
             case 40055: // Introspection
             case 40165: // Introspection
             case 40166: // Introspection

@@ -163,16 +163,10 @@ enum WorldBoolConfigs
     CONFIG_QUEST_IGNORE_AUTO_ACCEPT,
     CONFIG_QUEST_IGNORE_AUTO_COMPLETE,
     CONFIG_WARDEN_ENABLED,
-<<<<<<< HEAD
     CONFIG_ENABLE_MMAPS,
     CONFIG_WINTERGRASP_ENABLE,
     CONFIG_UI_QUESTLEVELS_IN_DIALOGS,     // Should we add quest levels to the title in the NPC dialogs?
     CONFIG_EVENT_ANNOUNCE,
-=======
-    CONFIG_OUTDOORPVP_WINTERGRASP_ENABLED,
-    CONFIG_OUTDOORPVP_WINTERGRASP_CUSTOM_HONOR,
-    CONFIG_OUTDOORPVP_WINTERGRASP_ANTIFARM_ENABLE,
->>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
     BOOL_CONFIG_VALUE_COUNT
 };
 
@@ -328,27 +322,12 @@ enum WorldIntConfigs
     CONFIG_WARDEN_CLIENT_BAN_DURATION,
     CONFIG_WARDEN_NUM_MEM_CHECKS,
     CONFIG_WARDEN_NUM_OTHER_CHECKS,
-<<<<<<< HEAD
     CONFIG_WINTERGRASP_PLR_MAX,
     CONFIG_WINTERGRASP_PLR_MIN,
     CONFIG_WINTERGRASP_PLR_MIN_LVL,
     CONFIG_WINTERGRASP_BATTLETIME,
     CONFIG_WINTERGRASP_NOBATTLETIME,
     CONFIG_WINTERGRASP_RESTART_AFTER_CRASH,
-=======
-    CONFIG_OUTDOORPVP_WINTERGRASP_START_TIME,
-    CONFIG_OUTDOORPVP_WINTERGRASP_BATTLE_TIME,
-    CONFIG_OUTDOORPVP_WINTERGRASP_INTERVAL,
-    CONFIG_OUTDOORPVP_WINTERGRASP_WIN_BATTLE,
-    CONFIG_OUTDOORPVP_WINTERGRASP_LOSE_BATTLE,
-    CONFIG_OUTDOORPVP_WINTERGRASP_DAMAGED_TOWER,
-    CONFIG_OUTDOORPVP_WINTERGRASP_DESTROYED_TOWER,
-    CONFIG_OUTDOORPVP_WINTERGRASP_DAMAGED_BUILDING,
-    CONFIG_OUTDOORPVP_WINTERGRASP_INTACT_BUILDING,
-    CONFIG_OUTDOORPVP_WINTERGRASP_SAVESTATE_PERIOD,
-    CONFIG_OUTDOORPVP_WINTERGRASP_ANTIFARM_ATK,
-    CONFIG_OUTDOORPVP_WINTERGRASP_ANTIFARM_DEF,
->>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
     INT_CONFIG_VALUE_COUNT
 };
 
@@ -756,18 +735,6 @@ class World
         void UpdateCharacterNameDataLevel(uint32 guid, uint8 level);
         void DeleteCharacterNameData(uint32 guid) { _characterNameDataMap.erase(guid); }
         bool HasCharacterNameData(uint32 guid) { return _characterNameDataMap.find(guid) != _characterNameDataMap.end(); }
-
-        // Wintergrasp
-        uint32 GetWintergrapsTimer() { return m_WintergrapsTimer; }
-        uint32 GetWintergrapsState() { return m_WintergrapsState; }
-        uint32 m_WintergrapsTimer;
-        uint32 m_WintergrapsState;
-        void SendWintergraspState();
-        void SetWintergrapsTimer(uint32 timer, uint32 state)
-        {
-            m_WintergrapsTimer = timer;
-            m_WintergrapsState = state;
-        }
 
         uint32 GetCleaningFlags() const { return m_CleaningFlags; }
         void   SetCleaningFlags(uint32 flags) { m_CleaningFlags = flags; }

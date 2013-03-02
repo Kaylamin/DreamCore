@@ -688,7 +688,6 @@ uint8 Vehicle::GetAvailableSeatCount() const
     return ret;
 }
 
-<<<<<<< HEAD
 void Vehicle::CalculatePassengerPosition(float& x, float& y, float& z, float& o)
 {
     float inx = x, iny = y, inz = z, ino = o;
@@ -879,30 +878,4 @@ void VehicleJoinEvent::Abort(uint64)
 
     if (Passenger->IsInWorld() && Passenger->HasUnitTypeMask(UNIT_MASK_ACCESSORY))
         Passenger->ToCreature()->DespawnOrUnsummon();
-=======
-void Vehicle::Relocate(Position pos)
-{
-    sLog->outDebug(LOG_FILTER_VEHICLES, "Vehicle::Relocate %u", _me->GetEntry());
-
-    std::set<Unit*> vehiclePlayers;
-    for (int8 i = 0; i < 8; i++)
-        vehiclePlayers.insert(GetPassenger(i));
-
-    // passengers should be removed or they will have movement stuck
-    RemoveAllPassengers();
-
-    for (std::set<Unit*>::const_iterator itr = vehiclePlayers.begin(); itr != vehiclePlayers.end(); ++itr)
-    {
-        if (Unit* plr = (*itr))
-        {
-            // relocate/setposition doesn't work for player
-            plr->NearTeleportTo(pos.GetPositionX(), pos.GetPositionY(), pos.GetPositionZ(), pos.GetOrientation());
-            //plr->TeleportTo(pPlayer->GetMapId(), triggerPos.GetPositionX(), triggerPos.GetPositionY(), triggerPos.GetPositionZ(), triggerPos.GetOrientation(), TELE_TO_NOT_LEAVE_COMBAT);
-        }
-    }
-
-    _me->UpdatePosition(pos, true);
-    // problems, and impossible to do delayed enter
-    //pPlayer->EnterVehicle(veh);
->>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
 }

@@ -31,15 +31,10 @@ enum OutdoorPvPTypes
     OUTDOOR_PVP_TF = 3,
     OUTDOOR_PVP_ZM = 4,
     OUTDOOR_PVP_SI = 5,
-<<<<<<< HEAD
     OUTDOOR_PVP_EP = 6
-=======
-    OUTDOOR_PVP_EP = 6,
-    OUTDOOR_PVP_WG = 7,
->>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
 };
 
-#define MAX_OUTDOORPVP_TYPES 8
+#define MAX_OUTDOORPVP_TYPES 7
 
 enum ObjectiveStates
 {

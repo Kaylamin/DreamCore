@@ -63,12 +63,8 @@
 #include "GameObjectAI.h"
 #include "AccountMgr.h"
 #include "InstanceScript.h"
-<<<<<<< HEAD
 #include "PathGenerator.h"
 #include "ReputationMgr.h"
-=======
-#include "OutdoorPvPWG.h"
->>>>>>> Full Wintergrasp patch by ChaosUA & TCRU community for TC b0985b4d5f98186a28b82fb9d92380de1fadafd1 + removed temporary huckfor towers
 
 pEffect SpellEffects[TOTAL_SPELL_EFFECTS]=
 {
@@ -3628,23 +3624,6 @@ void Spell::EffectScriptEffect(SpellEffIndex effIndex)
         {
             switch (m_spellInfo->Id)
             {
-                // Teleport to Lake Wintergrasp
-                case 58622:
-                {
-                  if (OutdoorPvPWG *pvpWG = (OutdoorPvPWG*)sOutdoorPvPMgr->GetOutdoorPvPToZoneId(4197))
-                     if (unitTarget->getLevel() > 74)
-                     {
-                       if ((pvpWG->getDefenderTeam()==TEAM_ALLIANCE) && (unitTarget->ToPlayer()->GetTeam() == ALLIANCE))
-                          unitTarget->CastSpell(unitTarget, SPELL_TELEPORT_FORTRESS, true);
-                       else if ((pvpWG->getDefenderTeam()==TEAM_ALLIANCE) && (unitTarget->ToPlayer()->GetTeam() == HORDE))
-                          unitTarget->CastSpell(unitTarget, SPELL_TELEPORT_HORDE_CAMP, true);
-                       else if ((pvpWG->getDefenderTeam()!=TEAM_ALLIANCE) && (unitTarget->ToPlayer()->GetTeam() == HORDE))
-                          unitTarget->CastSpell(unitTarget, SPELL_TELEPORT_FORTRESS, true);
-                       else if ((pvpWG->getDefenderTeam()!=TEAM_ALLIANCE) && (unitTarget->ToPlayer()->GetTeam() == ALLIANCE))
-                          unitTarget->CastSpell(unitTarget, SPELL_TELEPORT_ALLIENCE_CAMP, true);
-                     }
-                    return;
-                }
                 // Glyph of Backstab
                 case 63975:
                 {
